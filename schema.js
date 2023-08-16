@@ -1,37 +1,34 @@
 const {
   GraphQLObjectType,
   GraphQLSchema,
-  GraphQLString,
   GraphQLList,
+  GraphQLInt,
+  GraphQLString,
 } = require("graphql");
-
-const ItemType = new GraphQLObjectType({
-  name: "Item",
-  fields: {
-    id: { type: GraphQLString },
-    name: { type: GraphQLString },
-  },
-});
 
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
-    hello: {
-      type: GraphQLString,
+    items: {
+      type: new GraphQLList(GraphQLInt),
+      args: {
+        limit: { type: GraphQLInt }, // Add the "limit" argument
+      },
       resolve(parent, args) {
-        return "Hello from GraphQL!";
+        // In a real application, you would fetch the array of numbers from a data source
+        const items = [1, 2, 3, 4, 5, 7, 8, 34, 234];
+        return items.slice(0, args.limit);
       },
     },
-    items: {
-      type: new GraphQLList(ItemType),
+    name: {
+      type: GraphQLString,
+      //   args: {
+      //     limit: { type: GraphQLInt }, // Add the "limit" argument
+      //   },
       resolve(parent, args) {
-        // In a real application, you would fetch the array of items from a data source
-        const items = [
-          { id: "1", name: "Item 1" },
-          { id: "2", name: "Item 2" },
-          { id: "3", name: "Item 3" },
-        ];
-        return items;
+        // In a real application, you would fetch the array of numbers from a data source
+        const name = "Abzuar";
+        return name;
       },
     },
   },
