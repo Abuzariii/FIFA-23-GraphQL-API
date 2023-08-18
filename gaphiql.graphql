@@ -1,0 +1,48 @@
+{
+  ordersByEmail(email: "zoro@zoro.com") {
+    _id
+    email
+    orders {
+      id
+      name
+      price
+      timestamp
+    }
+  }
+}
+
+{
+  userByEmail(email: "muhammadabuzar@gmail.com") {
+    email
+    username
+    password
+  }
+}
+
+{
+  makeupUserByEmail(email: "muhammadabuzar@gmail.com") {
+    _id
+    email
+    fullName
+    contactNo
+    address
+  }
+}
+
+mutation {
+  createUser(
+    email: "newsdfjkuser@example.com"
+    username: "newusername"
+    password: "secretpassword"
+  ) {
+    message
+    email
+  }
+}
+
+mutation {
+  deleteUser(email: "newsdfjkuser@example.com") {
+    email
+    message
+  }
+}
