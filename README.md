@@ -23,5 +23,5 @@ Every player in the dataset has following attributes :
 ## `Data : `
 
 Data is taken from Kaggle, you can search up FIFA 23 dataset and download the csv. I created a table in PostgreSQL with the same attributes as the csv file and uploaded the file through pgadmin4.
-Then I used the pg package in my Nodejs project to connect with local postgres. you can follow the same process or use any other db of your choice. Make sure to install all the packages in packages.json file.
+Then I used the pg package in my Nodejs project to connect with local postgres. you can follow the same process or use any other db of your choice. Make sure to install all the packages in packages.json file. Also make sure to add your own credentials in db.js file in models directory
 
